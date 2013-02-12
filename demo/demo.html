@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<meta charset=utf-8 />
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Picture Element</title>
+		<script src="../matchmedia.js"></script>
+		<script src="../PictureElement.js"></script>
+		<style>
+			body { font-family: sans-serif }
+			img {  max-width: 100% }
+		</style>
+	</head>
+	<body>
+		
+		<h1>Picture Element: A &lt;picture&gt; element for Responsive Web Design</h1>
+				
+		<p>For more info: <a href="https://github.com/nzaugg/Picture-Element">see project home.</a></p>
+		
+		<picture alt="A giant stone face at The Bayon temple in Angkor Thom, Cambodia">
+			<source src="../demo/imgs/small.jpg" />
+			<source src="../demo/imgs/medium.jpg" media="(min-width: 400px)" />
+			<source src="../demo/imgs/large.jpg" media="(min-width: 800px)" />
+			<source src="../demo/imgs/extralarge.jpg" media="(min-width: 1000px)" />
+
+			<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+			<noscript><img src="../demo/imgs/small.jpg" alt="A giant stone face at The Bayon temple in Angkor Thom, Cambodia"></noscript>
+		</picture>
+		
+	</body>
+</html>
