@@ -2,7 +2,7 @@
 
 A Responsive Images approach that you can use today, that mimics the [proposed picture element](http://www.w3.org/community/respimg/wiki/Picture_Element_Proposal).
 
-* Based on Picturefill by Scott Jehl
+* Based on Picturefill by Scott Jehl (https://github.com/scottjehl/picturefill)
 * License: MIT/GPLv2
 
 **Demo URL:** [https://github.com/nzaugg/Picture-Element](https://github.com/nzaugg/Picture-Element)
@@ -11,7 +11,7 @@ A Responsive Images approach that you can use today, that mimics the [proposed p
 It includes the [matchMedia polyfill](https://github.com/paulirish/matchMedia.js/) 
 which makes matchMedia work in `media-query`-supporting browsers that don't have 
 `matchMedia`, or at least allows media types to be tested in most any browser. 
-`matchMedia` and the `matchMedia` polyfill are not required for `picturefill` 
+`matchMedia` and the `matchMedia` polyfill are not required for `Picture Element` 
 to work, but they are required to support the `media` attributes on `picture` `source` elements.
 
 ## Size and delivery
@@ -54,7 +54,7 @@ Notes on the markup above...
 	
 ### HD Media Queries
 
-Picturefill natively supports HD(Retina) image replacement.  While numerous other solutions exist, picturefill has the added benefit of performance for the user in only getting served one image.
+Picture Element natively supports HD(Retina) image replacement.  While numerous other solutions exist, Picture Element has the added benefit of performance for the user in only getting served one image.
 
 * The `media` attribute supports [compound media queries](https://developer.mozilla.org/en-US/docs/CSS/Media_queries), allowing for very specific behaviors to emerge.  For example, a `data-media="(min-width: 400px) and (min-device-pixel-ratio: 2.0)` attribute can be used to serve a higher resolution version of the source instead of a standard definition image. Note you currently also need to add the `-webkit-min-device-pixel-ratio` prefix (e.g. for iOS devices).
 
@@ -67,7 +67,7 @@ Picturefill natively supports HD(Retina) image replacement.  While numerous othe
 		<source src="large.jpg"         media="(min-width: 800px)" />
 		<source src="large_x2.jpg"      media="(min-width: 800px) and (min-device-pixel-ratio: 2.0)" />
 		<source src="extralarge.jpg"    media="(min-width: 1000px)" />
-		<source src="extralarge_x2.jpg" data-media="(min-width: 1000px) and (min-device-pixel-ratio: 2.0)" />
+		<source src="extralarge_x2.jpg" media="(min-width: 1000px) and (min-device-pixel-ratio: 2.0)" />
 
 		<!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
 		<noscript>
