@@ -1,8 +1,9 @@
-/*! Picturefill - Responsive Images that work today. 
-(and mimic the proposed Picture element with divs). 
-Author: Scott Jehl, Filament Group, 2012 | License: MIT/GPLv2 */
+/*! Picture Element - Responsive Images that work today. 
+Author: Scott Jehl, Filament Group, 2012 | License: MIT/GPLv2 
+Modified by: Nate Zaugg to mimic the HTML spec more closely
+*/
 
-// Add support for picture element
+// Add support for picture element in IE6-8
 document.createElement('picture');
 
 (function( w ){
@@ -15,7 +16,6 @@ document.createElement('picture');
 		
 		// Loop the pictures
 		for( var i = 0, il = ps.length; i < il; i++ ){
-			//if( ps[ i ].getAttribute( "data-picture" ) !== null ){
 
 			var sources = ps[ i ].getElementsByTagName( "source" ),
 				matches = [];
@@ -34,9 +34,15 @@ document.createElement('picture');
 
 			if( matches.length ){			
 				if( !picImg ){
-					picImg = w.document.createElement( "img" );
-					picImg.alt = ps[ i ].getAttribute( "alt" );
-					ps[ i ].appendChild( picImg );
+				    picImg = w.document.createElement("img");
+
+				    // Copy over any/all attributes (especially alt & class)
+				    var attrs;
+				    for (var a = 0, attrs = ps[i].attributes, l = attrs.length; a < l; a++) {
+				        picImg.setAttribute([attrs.item(a).nodeName], attrs.item(a).nodeValue);
+				    }
+
+					ps[i].appendChild(picImg);
 				}
 				
 				picImg.src =  matches.pop().getAttribute( "src" );
@@ -44,7 +50,6 @@ document.createElement('picture');
 			else if( picImg ){
 				ps[ i ].removeChild( picImg );
 			}
-			//}
 		}
 	};
 	
