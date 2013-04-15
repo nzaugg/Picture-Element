@@ -1,4 +1,5 @@
 # Picture Element
+by Nate Zaugg (https://github.com/nzaugg)
 
 A Responsive Images approach that you can use today, that mimics the [proposed picture element](http://www.w3.org/community/respimg/wiki/Picture_Element_Proposal).
 
